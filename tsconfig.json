@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": [
+      "ESNext"
+    ],
+    "declaration": false,
+    "removeComments": false,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "src"
+  ]
+}

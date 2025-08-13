@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - "main"
+      - "next"
+      - "*.x"
+
+env:
+  HUSKY: 0
+  CI: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Latest Corepack
+        run: |
+          echo "Before: corepack version => $(corepack --version || echo 'not installed')"
+          npm install -g corepack@latest
+          echo "After : corepack version => $(corepack --version)"
+          corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: "yarn"
+          node-version-file: ".nvmrc"
+
+      # No lint or prettier here since they were supposed to run on PR action
+      - name: Build
+        run: |
+          yarn install --immutable
+          yarn build
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
