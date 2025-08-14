@@ -1,0 +1,32 @@
+import { iwstEthv1AdapterAbi } from "@gearbox-protocol/integrations-v3";
+import type { GearboxSDK } from "@gearbox-protocol/sdk";
+import { type Address, decodeAbiParameters } from "viem";
+import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
+import { AbstractAdapterContract } from "./AbstractAdapter.js";
+
+const abi = iwstEthv1AdapterAbi;
+
+export class WstETHV1AdapterContract extends AbstractAdapterContract<
+  typeof abi
+> {
+  public readonly stETH: Address;
+
+  constructor(
+    sdk: GearboxSDK,
+    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+  ) {
+    super(sdk, { ...args, abi });
+
+    // Decode parameters directly using ABI decoding
+    const decoded = decodeAbiParameters(
+      [
+        { type: "address", name: "creditManager" },
+        { type: "address", name: "targetContract" },
+        { type: "address", name: "stETH" },
+      ],
+      args.baseParams.serializedParams,
+    );
+
+    this.stETH = decoded[2];
+  }
+}

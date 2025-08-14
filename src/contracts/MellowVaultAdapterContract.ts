@@ -1,0 +1,32 @@
+import { iMellowVaultAdapterAbi } from "@gearbox-protocol/integrations-v3";
+import type { GearboxSDK } from "@gearbox-protocol/sdk";
+import { type Address, decodeAbiParameters } from "viem";
+import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
+import { AbstractAdapterContract } from "./AbstractAdapter.js";
+
+const abi = iMellowVaultAdapterAbi;
+
+export class MellowVaultAdapterContract extends AbstractAdapterContract<
+  typeof abi
+> {
+  public readonly allowedUnderlyings: Address[];
+
+  constructor(
+    sdk: GearboxSDK,
+    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+  ) {
+    super(sdk, { ...args, abi });
+
+    // Decode parameters directly using ABI decoding
+    const decoded = decodeAbiParameters(
+      [
+        { type: "address", name: "creditManager" },
+        { type: "address", name: "targetContract" },
+        { type: "address[]", name: "allowedUnderlyings" },
+      ],
+      args.baseParams.serializedParams,
+    );
+
+    this.allowedUnderlyings = [...decoded[2]];
+  }
+}

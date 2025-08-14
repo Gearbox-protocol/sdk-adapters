@@ -1,5 +1,3 @@
-import type { Hex } from "viem";
-
 import type {
   AdapterData,
   BaseState,
@@ -7,39 +5,42 @@ import type {
   IGearboxSDKPlugin,
 } from "@gearbox-protocol/sdk";
 import { BasePlugin, bytes32ToString } from "@gearbox-protocol/sdk";
-import { BalancerV2VaultAdapterContract } from "./BalancerV2VaultAdapterContract.js";
-import { BalancerV3RouterAdapterContract } from "./BalancerV3RouterAdapterContract.js";
-import { CamelotV3AdapterContract } from "./CamelotV3AdapterContract.js";
-import { ConvexV1BaseRewardPoolAdapterContract } from "./ConvexV1BaseRewardPoolAdapterContract.js";
-import { ConvexV1BoosterAdapterContract } from "./ConvexV1BoosterAdapterContract.js";
-import { Curve2AssetsAdapterContract } from "./Curve2AssetsAdapterContract.js";
-import { Curve3AssetsAdapterContract } from "./Curve3AssetsAdapterContract.js";
-import { Curve4AssetsAdapterContract } from "./Curve4AssetsAdapterContract.js";
-import { CurveV1AdapterDeposit } from "./CurveV1AdapterDeposit.js";
-import { CurveV1AdapterStETHContract } from "./CurveV1AdapterStETHContract.js";
-import { CurveV1StableNGAdapterContract } from "./CurveV1StableNGAdapterContract.js";
-import { DaiUsdsAdapterContract } from "./DaiUsdsAdapterContract.js";
-import { EqualizerRouterAdapterContract } from "./EqualizerRouterAdapterContract.js";
-import { ERC4626AdapterContract } from "./ERC4626AdapterContract.js";
-import { FluidDexAdapterContract } from "./FluidDexAdapterContract.js";
-import { InfraredVaultAdapterContract } from "./InfraredVaultAdapterContract.js";
-import { KodiakIslandGatewayAdapterContract } from "./KodiakIslandGatewayAdapterContract.js";
-import { LidoV1AdapterContract } from "./LidoV1AdapterContract.js";
-import { MellowClaimerAdapterContract } from "./MellowClaimerAdapterContract.js";
-import { MellowDVVAdapterContract } from "./MellowDVVAdapterContract.js";
-import { MellowERC4626VaultAdapterContract } from "./MellowERC4626VaultAdapterContract.js";
-import { MellowVaultAdapterContract } from "./MellowVaultAdapterContract.js";
-import { MellowWrapperAdapterContract } from "./MellowWrapperAdapterContract.js";
-import { PendleRouterAdapterContract } from "./PendleRouterAdapterContract.js";
-import { StakingRewardsAdapterContract } from "./StakingRewardsAdapterContract.js";
-import { TraderJoeRouterAdapterContract } from "./TraderJoeRouterAdapterContract.js";
+import type { Hex } from "viem";
+import {
+  BalancerV2VaultAdapterContract,
+  BalancerV3RouterAdapterContract,
+  CamelotV3AdapterContract,
+  ConvexV1BaseRewardPoolAdapterContract,
+  ConvexV1BoosterAdapterContract,
+  Curve2AssetsAdapterContract,
+  Curve3AssetsAdapterContract,
+  Curve4AssetsAdapterContract,
+  CurveV1AdapterDeposit,
+  CurveV1AdapterStETHContract,
+  CurveV1StableNGAdapterContract,
+  DaiUsdsAdapterContract,
+  EqualizerRouterAdapterContract,
+  ERC4626AdapterContract,
+  FluidDexAdapterContract,
+  InfraredVaultAdapterContract,
+  KodiakIslandGatewayAdapterContract,
+  LidoV1AdapterContract,
+  MellowClaimerAdapterContract,
+  MellowDVVAdapterContract,
+  MellowERC4626VaultAdapterContract,
+  MellowVaultAdapterContract,
+  MellowWrapperAdapterContract,
+  PendleRouterAdapterContract,
+  StakingRewardsAdapterContract,
+  TraderJoeRouterAdapterContract,
+  UniswapV2AdapterContract,
+  UniswapV3AdapterContract,
+  UpshiftVaultAdapterContract,
+  VelodromeV2RouterAdapterContract,
+  WstETHV1AdapterContract,
+  YearnV2RouterAdapterContract,
+} from "./contracts";
 import type { AdapterContractType } from "./types.js";
-import { UniswapV2AdapterContract } from "./UniswapV2AdapterContract.js";
-import { UniswapV3AdapterContract } from "./UniswapV3AdapterContract.js";
-import { UpshiftVaultAdapterContract } from "./UpshiftVaultAdapterContract.js";
-import { VelodromeV2RouterAdapterContract } from "./VelodromeV2AdapterContract.js";
-import { WstETHV1AdapterContract } from "./WstETHV1AdapterContract.js";
-import { YearnV2RouterAdapterContract } from "./YearnV2AdapterContract.js";
 
 export class AdaptersPlugin
   extends BasePlugin<{}>
@@ -52,7 +53,7 @@ export class AdaptersPlugin
   public createContract(data: BaseState): IBaseContract | undefined {
     const args = data as AdapterData;
     const adapterType = bytes32ToString(
-      args.baseParams.contractType as Hex
+      args.baseParams.contractType as Hex,
     ) as AdapterContractType;
 
     switch (adapterType) {
@@ -122,7 +123,7 @@ export class AdaptersPlugin
         return new YearnV2RouterAdapterContract(this.sdk, args);
       default: {
         const err = new Error(
-          `Adapter type ${adapterType} not supported for adapter at ${args.baseParams.addr}`
+          `Adapter type ${adapterType} not supported for adapter at ${args.baseParams.addr}`,
         );
         if (this.sdk.strictContractTypes) {
           throw err;
