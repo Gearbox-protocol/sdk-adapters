@@ -5,10 +5,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iConvexV1BoosterAdapterAbi;
+type abi = typeof abi;
 
-export class ConvexV1BoosterAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class ConvexV1BoosterAdapterContract extends AbstractAdapterContract<abi> {
   public readonly supportedPools: {
     pid: number;
     curveToken: Address;
@@ -18,7 +17,7 @@ export class ConvexV1BoosterAdapterContract extends AbstractAdapterContract<
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

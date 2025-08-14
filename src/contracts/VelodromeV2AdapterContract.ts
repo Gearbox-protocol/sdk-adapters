@@ -5,10 +5,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iVelodromeV2RouterAdapterAbi;
+type abi = typeof abi;
 
-export class VelodromeV2RouterAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class VelodromeV2RouterAdapterContract extends AbstractAdapterContract<abi> {
   public readonly supportedPools: {
     token0: Address;
     token1: Address;
@@ -18,7 +17,7 @@ export class VelodromeV2RouterAdapterContract extends AbstractAdapterContract<
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

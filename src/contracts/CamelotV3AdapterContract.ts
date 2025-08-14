@@ -5,10 +5,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iCamelotV3AdapterAbi;
+type abi = typeof abi;
 
-export class CamelotV3AdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class CamelotV3AdapterContract extends AbstractAdapterContract<abi> {
   public readonly supportedPools: {
     token0: Address;
     token1: Address;
@@ -16,7 +15,7 @@ export class CamelotV3AdapterContract extends AbstractAdapterContract<
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

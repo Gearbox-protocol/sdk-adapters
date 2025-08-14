@@ -5,10 +5,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iConvexV1BaseRewardPoolAdapterAbi;
+type abi = typeof abi;
 
-export class ConvexV1BaseRewardPoolAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class ConvexV1BaseRewardPoolAdapterContract extends AbstractAdapterContract<abi> {
   public readonly curveLPtoken: Address;
   public readonly stakingToken: Address;
   public readonly stakedPhantomToken: Address;
@@ -16,7 +15,7 @@ export class ConvexV1BaseRewardPoolAdapterContract extends AbstractAdapterContra
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

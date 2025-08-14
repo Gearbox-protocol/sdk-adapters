@@ -21,6 +21,7 @@ import {
   DaiUsdsAdapterContract,
   EqualizerRouterAdapterContract,
   ERC4626AdapterContract,
+  ERC4626ReferralAdapterContract,
   FluidDexAdapterContract,
   InfraredVaultAdapterContract,
   KodiakIslandGatewayAdapterContract,
@@ -85,6 +86,8 @@ export class AdaptersPlugin
         return new EqualizerRouterAdapterContract(this.sdk, args);
       case "ADAPTER::ERC4626_VAULT":
         return new ERC4626AdapterContract(this.sdk, args);
+      case "ADAPTER::ERC4626_VAULT_REFERRAL":
+        return new ERC4626ReferralAdapterContract(this.sdk, args);
       case "ADAPTER::FLUID_DEX":
         return new FluidDexAdapterContract(this.sdk, args);
       case "ADAPTER::INFRARED_VAULT":

@@ -5,16 +5,15 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = erc4626ReferralAdapterAbi;
+type abi = typeof abi;
 
-export class ERC4626ReferralAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class ERC4626ReferralAdapterContract extends AbstractAdapterContract<abi> {
   public readonly asset: Address;
   public readonly referral: number;
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

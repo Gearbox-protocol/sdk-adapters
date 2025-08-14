@@ -1,21 +1,20 @@
-import { ierc4626AdapterAbi } from "@gearbox-protocol/integrations-v3";
+import { iMellow4626VaultAdapterAbi } from "@gearbox-protocol/integrations-v3";
 import type { GearboxSDK } from "@gearbox-protocol/sdk";
 import { type Address, decodeAbiParameters, zeroAddress } from "viem";
 import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
-const abi = ierc4626AdapterAbi;
+const abi = iMellow4626VaultAdapterAbi;
+type abi = typeof abi;
 
-export class MellowERC4626VaultAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class MellowERC4626VaultAdapterContract extends AbstractAdapterContract<abi> {
   public readonly vault: Address;
   public readonly asset: Address;
   public readonly stakedPhantomToken: Address;
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

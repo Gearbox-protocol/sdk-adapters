@@ -11,10 +11,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iUniswapV2AdapterAbi;
+type abi = typeof abi;
 
-export class UniswapV2AdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class UniswapV2AdapterContract extends AbstractAdapterContract<abi> {
   public readonly supportedPairs: {
     token0: Address;
     token1: Address;
@@ -22,7 +21,7 @@ export class UniswapV2AdapterContract extends AbstractAdapterContract<
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 
@@ -50,7 +49,7 @@ export class UniswapV2AdapterContract extends AbstractAdapterContract<
   }
 
   protected parseFunctionParams(
-    params: DecodeFunctionDataReturnType<typeof abi>,
+    params: DecodeFunctionDataReturnType<abi>,
   ): string[] | undefined {
     switch (params.functionName) {
       case "swapDiffTokensForTokens": {

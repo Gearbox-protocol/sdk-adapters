@@ -5,15 +5,14 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iYearnV2AdapterAbi;
+type abi = typeof abi;
 
-export class YearnV2RouterAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class YearnV2RouterAdapterContract extends AbstractAdapterContract<abi> {
   public readonly token: Address;
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

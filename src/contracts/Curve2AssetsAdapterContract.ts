@@ -5,10 +5,9 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iCurveV1_2AssetsAdapterAbi;
+type abi = typeof abi;
 
-export class Curve2AssetsAdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class Curve2AssetsAdapterContract extends AbstractAdapterContract<abi> {
   public readonly token: Address;
   public readonly lpToken: Address;
   public readonly metapoolBase: Address;
@@ -18,7 +17,7 @@ export class Curve2AssetsAdapterContract extends AbstractAdapterContract<
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 

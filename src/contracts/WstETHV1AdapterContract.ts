@@ -5,15 +5,14 @@ import type { AbstractAdapterContractOptions } from "./AbstractAdapter.js";
 import { AbstractAdapterContract } from "./AbstractAdapter.js";
 
 const abi = iwstEthv1AdapterAbi;
+type abi = typeof abi;
 
-export class WstETHV1AdapterContract extends AbstractAdapterContract<
-  typeof abi
-> {
+export class WstETHV1AdapterContract extends AbstractAdapterContract<abi> {
   public readonly stETH: Address;
 
   constructor(
     sdk: GearboxSDK,
-    args: Omit<AbstractAdapterContractOptions<typeof abi>, "abi">,
+    args: Omit<AbstractAdapterContractOptions<abi>, "abi">,
   ) {
     super(sdk, { ...args, abi });
 
