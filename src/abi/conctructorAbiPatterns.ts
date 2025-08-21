@@ -4,10 +4,34 @@ export const BASIC_ADAPTER_ABI = [
   { type: "address", name: "target" },
 ] as const;
 
-export const ADDRESS_ADAPTER_ABI = [
+export const STAKED_TOKEN_ADAPTER_ABI = [
   { type: "address", name: "creditManager" },
   { type: "address", name: "target" },
-  { type: "address", name: "" },
+  { type: "address", name: "stakedToken" },
+] as const;
+
+export const LP_ADAPTER_ABI = [
+  { type: "address", name: "creditManager" },
+  { type: "address", name: "target" },
+  { type: "address", name: "lpToken" },
+] as const;
+
+export const GATEWAY_ADAPTER_ABI = [
+  { type: "address", name: "creditManager" },
+  { type: "address", name: "target" },
+  { type: "address", name: "gateway" },
+] as const;
+
+export const ADDRESS_REFERRAL_ADAPTER_ABI = [
+  { type: "address", name: "creditManager" },
+  { type: "address", name: "target" },
+  { type: "address", name: "referral" },
+] as const;
+
+export const UINT_REFERRAL_ADAPTER_ABI = [
+  { type: "address", name: "creditManager" },
+  { type: "address", name: "target" },
+  { type: "uint16", name: "referral" },
 ] as const;
 
 // Curve ABI patterns
@@ -34,12 +58,6 @@ export const CURVE_V1_WRAPPER_ADAPTER_ABI = [
 ] as const;
 
 // Other ABI patterns
-export const ERC4626_REFERRAL_ADAPTER_ABI = [
-  { type: "address", name: "creditManager" },
-  { type: "address", name: "target" },
-  { type: "uint16", name: "referral" },
-] as const;
-
 export const STAKING_REWARDS_ADAPTER_ABI = [
   { type: "address", name: "creditManager" },
   { type: "address", name: "target" },
