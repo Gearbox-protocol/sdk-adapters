@@ -23,6 +23,8 @@ import {
   ERC4626AdapterContract,
   ERC4626ReferralAdapterContract,
   FluidDexAdapterContract,
+  InfinifiGatewayAdapterContract,
+  InfinifiUnwindingGatewayAdapterContract,
   InfraredVaultAdapterContract,
   KodiakIslandGatewayAdapterContract,
   LidoV1AdapterContract,
@@ -90,6 +92,10 @@ export class AdaptersPlugin
         return new ERC4626ReferralAdapterContract(this.sdk, args);
       case "ADAPTER::FLUID_DEX":
         return new FluidDexAdapterContract(this.sdk, args);
+      case "ADAPTER::INFINIFI_GATEWAY":
+        return new InfinifiGatewayAdapterContract(this.sdk, args);
+      case "ADAPTER::INFINIFI_UNWINDING":
+        return new InfinifiUnwindingGatewayAdapterContract(this.sdk, args);
       case "ADAPTER::INFRARED_VAULT":
         return new InfraredVaultAdapterContract(this.sdk, args);
       case "ADAPTER::KODIAK_ISLAND_GATEWAY":

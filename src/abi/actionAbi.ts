@@ -2,6 +2,9 @@ import type { PartialRecord } from "@gearbox-protocol/sdk";
 import { type Hex, parseAbi, toFunctionSelector } from "viem";
 import { AdapterType, type VersionedAbi } from "../types";
 
+const infinifiActionSignature =
+  "function setLockedTokenBatchStatus((address,uint32,bool)[])";
+
 /**
  * Mapping from adapter type to ABI for decoding deploy params
  * These ABIs correspond to the constructor parameters used in each adapter's getDeployParams method
@@ -25,6 +28,12 @@ export const adapterActionSignatures: PartialRecord<
   },
   [AdapterType.EQUALIZER_ROUTER]: {
     310: "function setPoolStatusBatch((address,address,bool,bool)[])",
+  },
+  [AdapterType.INFINIFI_GATEWAY]: {
+    310: infinifiActionSignature,
+  },
+  [AdapterType.INFINIFI_UNWINDING]: {
+    310: infinifiActionSignature,
   },
   [AdapterType.KODIAK_ISLAND_GATEWAY]: {
     310: "function setIslandStatusBatch((address,uint8)[])",

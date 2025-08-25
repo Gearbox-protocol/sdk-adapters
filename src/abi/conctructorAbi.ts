@@ -37,6 +37,9 @@ export const adapterConstructorAbi: Record<AdapterType, VersionedAbi> = {
   [AdapterType.FLUID_DEX]: {
     310: BASIC_ADAPTER_ABI,
   },
+  [AdapterType.INFINIFI_GATEWAY]: {
+    310: BASIC_ADAPTER_ABI,
+  },
   [AdapterType.KODIAK_ISLAND_GATEWAY]: {
     310: BASIC_ADAPTER_ABI,
   },
@@ -128,10 +131,13 @@ export const adapterConstructorAbi: Record<AdapterType, VersionedAbi> = {
   },
 
   // Other adapters
-  // address pattern [creditManager, target, address]
+  // address pattern [creditManager, target, stakedToken]
   [AdapterType.CVX_V1_BASE_REWARD_POOL]: {
     310: STAKED_TOKEN_ADAPTER_ABI,
     311: STAKED_TOKEN_ADAPTER_ABI,
+  },
+  [AdapterType.INFINIFI_UNWINDING]: {
+    310: STAKED_TOKEN_ADAPTER_ABI,
   },
   [AdapterType.INFRARED_VAULT]: {
     310: STAKED_TOKEN_ADAPTER_ABI,

@@ -15,6 +15,8 @@ export * from "./EqualizerRouterAdapterContract.js";
 export * from "./ERC4626AdapterContract.js";
 export * from "./ERC4626ReferralAdapterContract.js";
 export * from "./FluidDexAdapterContract.js";
+export * from "./InfinifiGatewayAdapterContract.js";
+export * from "./InfinifiUnwindingGatewayAdapterContract.js";
 export * from "./InfraredVaultAdapterContract.js";
 export * from "./KodiakIslandGatewayAdapterContract.js";
 export * from "./LidoV1AdapterContract.js";
