@@ -61,6 +61,9 @@ export const adapterConstructorAbi: Record<AdapterType, VersionedAbi> = {
   [AdapterType.UNISWAP_V3_ROUTER]: {
     310: BASIC_ADAPTER_ABI,
   },
+  [AdapterType.UNISWAP_V4_GATEWAY]: {
+    310: BASIC_ADAPTER_ABI,
+  },
   [AdapterType.VELODROME_V2_ROUTER]: {
     310: BASIC_ADAPTER_ABI,
   },

@@ -36,6 +36,7 @@ import {
   TraderJoeRouterAdapterContract,
   UniswapV2AdapterContract,
   UniswapV3AdapterContract,
+  UniswapV4AdapterContract,
   UpshiftVaultAdapterContract,
   VelodromeV2RouterAdapterContract,
   WstETHV1AdapterContract,
@@ -118,6 +119,8 @@ export class AdaptersPlugin
         return new UniswapV2AdapterContract(this.sdk, args);
       case "ADAPTER::UNISWAP_V3_ROUTER":
         return new UniswapV3AdapterContract(this.sdk, args);
+      case "ADAPTER::UNISWAP_V4_GATEWAY":
+        return new UniswapV4AdapterContract(this.sdk, args);
       case "ADAPTER::UPSHIFT_VAULT":
         return new UpshiftVaultAdapterContract(this.sdk, args);
       case "ADAPTER::VELODROME_V2_ROUTER":

@@ -29,7 +29,9 @@ export * from "./TraderJoeRouterAdapterContract.js";
 export * from "./types.js";
 export * from "./UniswapV2AdapterContract.js";
 export * from "./UniswapV3AdapterContract.js";
+export * from "./UniswapV4AdapterContract.js";
 export * from "./UpshiftVaultAdapterContract.js";
 export * from "./VelodromeV2AdapterContract.js";
 export * from "./WstETHV1AdapterContract.js";
 export * from "./YearnV2AdapterContract.js";
+

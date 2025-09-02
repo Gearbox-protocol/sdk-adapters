@@ -47,6 +47,9 @@ export const adapterActionSignatures: PartialRecord<
   [AdapterType.UNISWAP_V3_ROUTER]: {
     310: "function setPoolStatusBatch((address,address,uint24,bool)[])",
   },
+  [AdapterType.UNISWAP_V4_GATEWAY]: {
+    310: "function setPoolKeyStatusBatch(((address,address,uint24,uint24,address),bool)[])",
+  },
   [AdapterType.VELODROME_V2_ROUTER]: {
     310: "function setPoolStatusBatch((address,address,bool,address,bool)[])",
   },
