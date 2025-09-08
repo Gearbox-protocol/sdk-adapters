@@ -30,7 +30,7 @@
     "typecheck:ci": "tsc --noEmit"
   },
   "dependencies": {
-    "@gearbox-protocol/integrations-v3": "1.42.0-abi.4",
+    "@gearbox-protocol/integrations-v3": "1.42.0-abi.5",
     "viem": ">=2.23.15 <3.0.0"
   },
   "peerDependencies": {

@@ -772,10 +772,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gearbox-protocol/integrations-v3@npm:1.42.0-abi.4":
-  version: 1.42.0-abi.4
-  resolution: "@gearbox-protocol/integrations-v3@npm:1.42.0-abi.4"
-  checksum: 10c0/93b47c6d02821802d3c98e07b703640c90bf4cf7430a6e714c3191ced0d4ab2e5d41027c77972859a6f8a4425c11b4dcda90818073e7c1b1da8d6214aa88c58c
+"@gearbox-protocol/integrations-v3@npm:1.42.0-abi.5":
+  version: 1.42.0-abi.5
+  resolution: "@gearbox-protocol/integrations-v3@npm:1.42.0-abi.5"
+  checksum: 10c0/fff3cac59321b6b61ebbce66bbf3ac7ba81f37c0d536b1c638e8a7468e654cfa52208e20c4b95c216e4f0a10140176618e7fb5f3d4dde1d11e370b526ef9ee19
   languageName: node
   linkType: hard
 
@@ -787,7 +787,7 @@ __metadata:
     "@commitlint/cli": "npm:^19.8.1"
     "@commitlint/config-conventional": "npm:^19.8.1"
     "@gearbox-protocol/biome-config": "npm:^1.0.1"
-    "@gearbox-protocol/integrations-v3": "npm:1.42.0-abi.4"
+    "@gearbox-protocol/integrations-v3": "npm:1.42.0-abi.5"
     "@gearbox-protocol/sdk": "npm:^8.27.11"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^16.1.6"
